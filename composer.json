@@ -1,0 +1,36 @@
+{
+    "name": "bgrrtt/spacecraft",
+    "description": "DevOps Infrastructure for CraftCMS.",
+    "authors": [
+      { "name": "Branden Garrett", "email": "branden.garrett@gmail.com" }
+    ],
+    "keywords": [
+      "spacecraft",
+      "craftcms",
+      "devops",
+      "boilerplate",
+      "starter"
+    ],
+    "type": "project",
+    "homepage": "https://bgrrtt.com/spacecraft",
+    "support": {},
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+      "php": ">=7.0.0",
+      "craftcms/cms": "^3.0.0-beta.20",
+      "roave/security-advisories": "dev-master"
+    },
+    "require-dev": {
+      "bgrrtt/ansible-roles": "dev-master"
+    },
+    "config": {
+      "optimize-autoloader": true
+    },
+    "repositories": [
+      {
+        "type": "composer",
+        "url": "https://asset-packagist.org"
+      }
+    ]
+}

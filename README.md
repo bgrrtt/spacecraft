@@ -13,25 +13,25 @@
 
 <hr>
 
-[![GitHub contributors](https://img.shields.io/github/contributors/bgrrtt/spacecraft.svg)](https://github.com/bgrrtt/spacecraft/graphs/contributors) [![CircleCI](https://circleci.com/gh/bgrrtt/spacecraft.svg?style=svg)](https://circleci.com/gh/bgrrtt/spacecraft) [![SensioLabs Insight](https://img.shields.io/sensiolabs/i/703a950d-b8ec-478f-a1dc-82c120743e31.svg)](https://insight.sensiolabs.com/projects/703a950d-b8ec-478f-a1dc-82c120743e31) [![Packagist](https://img.shields.io/packagist/dt/bgrrtt/spacecraft.svg)](https://packagist.org/packages/bgrrtt/spacecraft) [![Gratipay User](https://img.shields.io/gratipay/user/bgrrtt.svg)](https://gratipay.com/SpaceCraft/)
+ [![CircleCI](https://img.shields.io/circleci/project/github/bgrrtt/spacecraft.svg)](https://circleci.com/gh/bgrrtt/spacecraft) [![SensioLabs Insight](https://img.shields.io/sensiolabs/i/703a950d-b8ec-478f-a1dc-82c120743e31.svg)](https://insight.sensiolabs.com/projects/703a950d-b8ec-478f-a1dc-82c120743e31) [![Packagist](https://img.shields.io/packagist/dt/bgrrtt/spacecraft.svg)](https://packagist.org/packages/bgrrtt/spacecraft) [![GitHub contributors](https://img.shields.io/github/contributors/bgrrtt/spacecraft.svg)](https://github.com/bgrrtt/spacecraft/graphs/contributors) [![Gratipay User](https://img.shields.io/gratipay/user/bgrrtt.svg)](https://gratipay.com/SpaceCraft/)
+
 
 # DevOps for Craft CMS 🚀
 A project-based, host-agnostic, and version-controlled development environment that builds and operates cloud-based production environments. Our homesteads may be different, so let's go to [SPACE](https://www.youtube.com/watch?v=S6R3MiAv9ac) together!
 
 ## Installation
-
-- `brew install composer`
+- `brew install php71 composer`
 - `brew cask install vagrant virtualbox`
+
+<!--
 - `vagrant plugin install vagrant-hostsupdater vagrant-vbguest vagrant-bindfs`
-
-
+ -->
 
 1. `composer create-project bgrrtt/spacecraft NEW_PROJECT` && `cd NEW_PROJECT`
-2. `git remote set-url origin git@github.com:USERNAME/NEW_PROJECT_REPO.git
-3. Edit `NEW_PROJECT/ops/config/project.yml`.
-4. Edit `NEW_PROJECT/ops/config/server.yml`.
+2. `git init` && `git remote set-url origin git@github.com:USERNAME/NEW_PROJECT_PRIVATE_REPO.git`
+3. Edit [`ops/config/project.yml`]() and  [`ops/config/server.yml`]().
 5. `vagrant up` && `vagrant ssh`
-6. Visit [http://project_local_domain.project_local_domain/admin/install](http://spacecraft.dev/admin/install).
+6. Visit [http://{project_local_domain}.{project_local_domain}/admin/install](http://spacecraft.dev/admin/install).
 7. Follow this [walkthrough](#) to build and command SpaceCraft cloud infrastructure.<sup>[[1]](#footnote1)</sup>
 
 ## Usage
@@ -44,13 +44,13 @@ A project-based, host-agnostic, and version-controlled development environment t
 - Progressive Web Application Role
 - Preview Environment
 - Continuous Integration
-- Test All The Things with CircleCI
+- Test all the things with CircleCI
 - Expand providers to Digital Ocean, Vultr, Google Cloud, Azure, Openstack, and Rackspace
 - CLI for ansible-playbooks and options
 - CLI to prompt `ops/config` settings
 - CLI to manage local SpaceCrafts
 
-We are looking for Contributors! Please submit an issue or pull request or find me on the [Craft Slack]().
+Looking for contributors! Please submit an issue or pull request or find me on the [Craft Slack]().
 
 ## Acknowledgements
 Thanks to [@pixelandtonic]() and [@khalwat]() for their industry and influence.

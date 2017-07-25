@@ -1,0 +1,9 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: ubuntu:16.04
+    working_directory: /site
+    steps:
+      - checkout

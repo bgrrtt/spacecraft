@@ -1,7 +1,5 @@
 # Default
-.DS_Store
 .git
-.idea
 .vagrant
 *.pyc
 *.retry

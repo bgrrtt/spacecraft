@@ -1,0 +1,71 @@
+---
+################################################################################
+# Craft CMS
+################################################################################
+
+craft_env: "production"
+craft_site_name: "{{ project_name }}"
+craft_host_url: "{{ project_produ_domain }}.{{ project_produ_tld }}"
+craft_site_url: "//{{ project_produ_domain }}.{{ project_produ_tld }}"
+craft_db_driver: "mysql"
+craft_db_server: "{{ RDS_DB_ENDPOINT }}"
+craft_db_user: "{{ RDS_DB_USERNAME }}"
+craft_db_password: "{{ RDS_DB_PASSWORD }}"
+craft_db_database: "{{ RDS_DB_NAME }}"
+craft_db_schema: "public"
+craft_db_prefix: "craft"
+craft_db_port: "3306" # 5432 for PostgreSQL and 3306 for MySQL
+
+################################################################################
+# Nginx
+################################################################################
+
+nginx_vhosts:
+  - listen: "80"
+    server_name: "{{ craft_host_url }}"
+    root: /site/public
+    index: "index.php index.html index.htm"
+    extra_parameters: |
+
+      location ~ ^/(wp-login|wp-admin|wp-config|wp-content|wp-includes|(.*)\.exe) {
+        return 301 https://wordpress.com/wp-login.php;
+      }
+      location / {
+        try_files $uri $uri/ /index.php$is_args$args;
+      }
+      location ^~ /admin {
+        try_files $uri $uri/ /index.php$is_args$args;
+      }
+      location ^~ /cpresources {
+        try_files $uri $uri/ /index.php$is_args$args;
+      }
+      location ~ [^/]\.php(/|$) {
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param SCRIPT_NAME $fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+        fastcgi_param SPACECRAFT_ENVIRONMENT "{{ craft_env }}";
+        fastcgi_param SPACECRAFT_SITE_URL    "{{ craft_site_url }}";
+        fastcgi_param DB_DRIVER              "{{ craft_db_driver }}";
+        fastcgi_param DB_SERVER              "{{ craft_db_server }}";
+        fastcgi_param DB_USER                "{{ craft_db_user }}";
+        fastcgi_param DB_PASSWORD            "{{ craft_db_password }}";
+        fastcgi_param DB_DATABASE            "{{ craft_db_database }}";
+        fastcgi_param DB_SCHEMA              "{{ craft_db_schema }}";
+        fastcgi_param DB_TABLE_PREFIX        "{{ craft_db_prefix }}";
+        fastcgi_param DB_PORT                "{{ craft_db_port }}";
+      }
+      location ~ /\.ht {
+        deny all;
+      }
+
+################################################################################
+# MySQL Root Password on EC2. Not in use, but needs to be cyptic. != `root`.
+################################################################################
+mysql_root_password: "{{ craft_db_password }}"
+################################################################################
+#
+################################################################################

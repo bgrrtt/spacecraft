@@ -1,0 +1,13 @@
+---
+- hosts: local
+  connection: local
+  become: false
+  vars_files:
+    - /ops/config/project.yml
+    - /ops/config/server.yml
+    - /ops/secret_vars/aws/access.yml
+    - /ops/secret_vars/aws/s3.yml
+    - /ops/secret_vars/aws/ec2.yml
+  roles:
+    - { role: ssh }
+    - { role: aws-ha }

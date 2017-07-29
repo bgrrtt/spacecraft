@@ -1,0 +1,61 @@
+---
+- hosts: production
+  become: yes
+  vars_files:
+    - /ops/config/project.yml
+    - /ops/config/server.yml
+    - /ops/secret_vars/aws/access.yml
+    - /ops/secret_vars/aws/s3.yml
+    - /ops/secret_vars/aws/ec2.yml
+  tasks:
+    - name: import deploy.pem key to root user
+      copy: src=/ops/secret_vars/keys/deploy.pem dest=/root/.ssh/id_rsa owner=root group=root mode=0600
+
+    - name: import deploy.pub key to root user
+      copy: src=/ops/secret_vars/keys/deploy.pub dest=/root/.ssh/id_rsa.pub owner=root group=root mode=0644
+
+    - name: install /site from git repo
+      git: repo={{ site_repo_url }}
+           dest=/site
+           accept_hostkey=yes
+           track_submodules=yes
+           recursive=yes
+           force=yes
+           update=yes
+
+    - name: ensure www-data permissions of /site/craft/storage folder
+      file: path=/site/craft/storage
+            state=directory
+            owner={{ vm_user }}
+            group={{ vm_group }}
+            mode=0774
+            recurse=yes
+
+    - name: load license.key
+      copy: src=/ops/secret_vars/keys/license.key
+            dest=/site/craft/config/license.key
+            owner={{ vm_user }}
+            group={{ vm_group }}
+            mode=0774
+
+    - name: ensure www-data permissions of /site/craft/config/license.key
+      file: path=/site/craft/config/license.key
+            state=file
+            owner={{ vm_user }}
+            group={{ vm_group }}
+            mode=0774
+
+    - name: ensure www-data permissions of /site/public/cpresources (exisits)
+      file: path=/site/public/cpresources
+            state=directory
+            owner={{ vm_user }}
+            group={{ vm_group }}
+            mode=0774
+
+    - name: composer update
+      composer:
+        command: update
+        working_dir: /site
+        no_dev: yes
+        prefer_dist: yes
+        prefer_source: yes

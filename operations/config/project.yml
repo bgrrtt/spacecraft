@@ -1,0 +1,37 @@
+---
+################################################################################
+# Project
+################################################################################
+
+project_name: "SpaceCraft"
+project_code: "spacecraft"
+
+################################################################################
+# Environments
+################################################################################
+
+# Local
+project_local_ip: "10.10.10.10"
+project_local_domain: "spacecraft"
+project_local_tld: "dev"
+
+# Production
+project_produ_sub: "www"
+project_produ_domain: "spacecraft"
+project_produ_tld: "com"
+
+################################################################################
+# System Architecture
+################################################################################
+
+project_repo_url: git@github.com:USERNAME/REPO.git
+
+project_web_server: "nginx"
+project_db_server: "mysql"
+
+project_ubuntu_version: "16.04"
+project_php_version: "7.1"
+project_db_server_version: "5.7"
+
+################################################################################
+################################################################################

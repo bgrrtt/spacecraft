@@ -1,0 +1,22 @@
+---
+- hosts: all
+  become: yes
+  vars_files:
+    - /ops/config/project.yml
+    - /ops/config/server.yml
+    # - /ops/secret_vars/aws/rds.yml # uncomment after setup_production.yml
+    # - /ops/secret_vars/aws/s3.yml # uncomment after setup_production.yml
+  roles:
+    - { role: apt }
+    - { role: pip }
+    - { role: swap }
+    - { role: time }
+    - { role: zsh }
+    - { role: ssh }
+    - { role: nginx }
+    - { role: mysql }
+    - { role: php }
+    - { role: php-mysql }
+    - { role: composer }
+    - { role: nodejs }
+    - { role: permissions }

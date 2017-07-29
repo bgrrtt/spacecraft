@@ -1,0 +1,4 @@
+*
+!.gitignore
+
+# Remove after running ansible-vault

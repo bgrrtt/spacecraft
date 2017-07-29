@@ -1,0 +1,120 @@
+---
+################################################################################
+#
+# Server
+#
+################################################################################
+
+################################################################################
+# User
+################################################################################
+vm_user: "{{ ansible_env.SUDO_USER | default(ansible_env.USER, true) | default(ansible_user_id, true) }}"
+vm_group: "{{ ansible_env.SUDO_USER | default(ansible_env.USER, true) | default(ansible_user_id, true) }}"
+user: "{{ vm_user }}"
+group: "{{ vm_group }}"
+
+################################################################################
+# Vagrant
+################################################################################
+vagrant_box: "bento/ubuntu-{{ project_ubuntu_version }}"
+vagrant_project: "spacecraft.{{ project_local_domain }}"
+vagrant_host: "{{ project_local_domain }}.{{ project_local_tld }}"
+vagrant_ip: "{{ project_local_ip }}"
+vagrant_mem: "2048"
+vagrant_cpu: "2"
+
+################################################################################
+# Zsh
+################################################################################
+zim_repo: "https://github.com/bgrrtt/spacecraft-dotfiles.git"
+
+################################################################################
+# Nginx
+################################################################################
+nginx_remove_default_vhost: true
+nginx_ppa_use: true
+
+################################################################################
+# Database
+################################################################################
+mysql_root_password: root
+mysql_slow_query_log_enabled: true
+mysql_slow_query_time: 2
+mysql_wait_timeout: 300
+
+################################################################################
+# php
+################################################################################
+php_version: "{{ project_php_version }}"
+php_install_recommends: yes
+php_memory_limit: "192M"
+php_display_errors: "On"
+php_display_startup_errors: "On"
+php_realpath_cache_size: "1024K"
+php_opcache_enabled_in_ini: true
+php_opcache_memory_consumption: "192"
+php_opcache_max_accelerated_files: 4096
+php_max_input_vars: "4000"
+php_date_timezone: "America/Detroit"
+
+# php-fpm
+php_webserver_daemon: "{{ project_web_server }}"
+php_enable_php_fpm: true
+php_fpm_daemon: "php{{ php_version }}-fpm"
+php_fpm_conf_path: "/etc/php/{{ php_version }}/fpm"
+php_fpm_pool_conf_path: "{{ php_fpm_conf_path }}/pool.d/www.conf"
+php_fpm_listen: "127.0.0.1:9000"
+php_fpm_pool_user: "{{ vm_user }}"
+php_fpm_pool_group: "{{ vm_user }}"
+
+# phpConfs
+php_conf_paths:
+  - /etc/php/{{ php_version }}/fpm
+  - /etc/php/{{ php_version }}/nginx
+  - /etc/php/{{ php_version }}/cli
+
+php_extension_conf_paths:
+  - /etc/php/{{ php_version }}/fpm/conf.d
+  - /etc/php/{{ php_version }}/nginx/conf.d
+  - /etc/php/{{ php_version }}/cli/conf.d
+
+# phpPackages
+php_mysql_package: "php{{ php_version }}-mysql"
+php_packages:
+  - "php{{ php_version }}"
+  - "php-apcu"
+  - "php{{ php_version }}-cli"
+  - "php{{ php_version }}-cgi"
+  - "php{{ php_version }}-common"
+  - "php{{ php_version }}-curl"
+  - "php{{ php_version }}-dev"
+  - "php{{ php_version }}-fpm"
+  - "php{{ php_version }}-gd"
+  - "php-imagick"
+  - "php{{ php_version }}-imap"
+  - "php{{ php_version }}-intl"
+  - "php{{ php_version }}-json"
+  - "php{{ php_version }}-mbstring"
+  - "php{{ php_version }}-mcrypt"
+  - "php{{ php_version }}-odbc"
+  - "php{{ php_version }}-opcache"
+  - "php-pear"
+  - "php{{ php_version }}-sqlite3"
+  - "php{{ php_version }}-tidy"
+  - "php{{ php_version }}-xml"
+  - "php{{ php_version }}-xmlrpc"
+  - "php{{ php_version }}-zip"
+  - "libpcre3-dev"
+
+################################################################################
+# Composer
+################################################################################
+composer_add_project_to_path: true
+composer_project_path: /site
+
+################################################################################
+# NodeJS
+################################################################################
+nodejs_version: "6.x"
+nodejs_install_npm_user: "{{ vm_user }}"
+nodejs_npm_global_packages: []

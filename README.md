@@ -29,7 +29,7 @@ A project-based, host-agnostic, and version-controlled development environment t
 
 1. `composer create-project bgrrtt/spacecraft NEW_PROJECT` && `cd NEW_PROJECT`
 2. `git init` && `git remote set-url origin git@github.com:USERNAME/NEW_PROJECT_PRIVATE_REPO.git`
-3. Edit [`ops/config/project.yml`]() and  [`ops/config/server.yml`]().
+3. Edit [`operations/config/project.yml`]() and  [`operations/config/server.yml`]().
 5. `vagrant up` && `vagrant ssh`
 6. Visit [http://{project_local_domain}.{project_local_domain}/admin/install](http://spacecraft.dev/admin/install).
 7. Follow this [walkthrough](#) to build and command SpaceCraft cloud infrastructure.<sup>[[1]](#footnote1)</sup>

@@ -4,8 +4,8 @@
 ################################################################################
 require './operations/vagrant/install.rb'
 vconfig = load_config([
-        './operations/settings/project.yml',
-        './operations/settings/server.yml'
+        './operations/config/project.yml',
+        './operations/config/server.yml'
       ])
 ################################################################################
 Vagrant.configure('2') do |config|

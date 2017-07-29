@@ -1,2 +1,22 @@
-/vendor/
+# Default
+.DS_Store
+.git
+.idea
+.vagrant
+*.pyc
+*.retry
+
+# Node
+node_modules
+
+# Ansible
+
+# Craft
+craft/config/license.key
+
+# Composer
+vendor/
 composer.lock
+
+# Unoptimized Frontend Styles
+master.css

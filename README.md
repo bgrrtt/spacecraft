@@ -38,14 +38,15 @@ A project-based, host-agnostic, and version-controlled development environment t
 - Container Architecture Options with Docker
 - FPM Static Page Caching
 - Webpack Frontend System
-- Progressive Web Application Role
+- Template Pattern Lab
+- Progressive Web Application Options
+- Auto Install Craft CMS
 - Preview Environment
-- Continuous Integration
+- Continuous Integration Flow
 - Test all the things with CircleCI
 - Expand providers to Digital Ocean, Vultr, Google Cloud, Azure, Openstack, and Rackspace
-- CLI for ansible-playbooks and options
-- CLI to prompt `ops/config` settings
-- CLI to manage local SpaceCrafts
+- Guest CLI for ansible-playbooks and options
+- Host CLI to manage local SpaceCrafts
 
 Looking for contributors! Please submit an issue or pull request or find me on the [Craft Slack]().
 
@@ -53,10 +54,3 @@ Looking for contributors! Please submit an issue or pull request or find me on t
 Thanks to [@pixelandtonic]() and [@khalwat]() for their industry and influence.
 
 Thanks to [@geerlingguy]() for [Ansible for DevOps](), his [Ansible Galaxy Roles](), and [Drupal VM]().
-
----
-**<a name="footnote1"><sup>[1]</sup></a>DISCLAIMER**: It is your responsibility as a web professional to understand and use these tools safely and effectively. It is not the responsibility of, I or, any contributing developer to ensure your usage adheres to industry standards. As such, use this software AT YOUR OWN RISK.
-<!-- <a name="footnote2">2</a>: <sup>[2](#footnote2)</sup>
-<a name="footnote3">3</a>: <sup>[3](#footnote3)</sup>
-<a name="footnote4">4</a>: <sup>[4](#footnote4)</sup>
-<a name="footnote5">5</a>: <sup>[5](#footnote5)</sup> -->

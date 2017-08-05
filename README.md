@@ -30,7 +30,8 @@ A project-based, host-agnostic, and version-controlled development environment t
 
 > Follow [this walkthrough](https://bgrrtt.github.io/spacecraft-docs) to build and command your own SpaceCraft cloud infrastructure.
 
-## Usage
+## Welcome to Space!
+**[READ THE DOCS](https://bgrrtt.github.io/spacecraft-docs/)**
 
 ## Roadmap
 - Smaller Infrastructure Options (VPC vs. VPS)

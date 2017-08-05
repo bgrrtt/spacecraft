@@ -23,16 +23,12 @@ A project-based, host-agnostic, and version-controlled development environment t
 - `brew install php71 composer`
 - `brew cask install vagrant virtualbox`
 
-<!--
-- `vagrant plugin install vagrant-hostsupdater vagrant-vbguest vagrant-bindfs`
- -->
 
-1. `composer create-project bgrrtt/spacecraft NEW_PROJECT` && `cd NEW_PROJECT`
-2. `git init` && `git remote set-url origin git@github.com:USERNAME/NEW_PROJECT_PRIVATE_REPO.git`
-3. Edit [`operations/config/project.yml`]() and  [`operations/config/server.yml`]().
-5. `vagrant up` && `vagrant ssh`
-6. Visit [http://{project_local_domain}.{project_local_domain}/admin/install](http://spacecraft.dev/admin/install).
-7. Follow this [walkthrough](#) to build and command SpaceCraft cloud infrastructure.<sup>[[1]](#footnote1)</sup>
+1. `composer create-project bgrrtt/spacecraft ` && `cd spacecraft`
+2. `vagrant up` && `vagrant ssh`
+3. Visit [http://spacecraft.dev/admin/install](http://spacecraft.dev/admin/install) to complete the setup.
+
+> Follow this [walkthrough](#) to build and command your own SpaceCraft cloud infrastructure.
 
 ## Usage
 

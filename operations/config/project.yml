@@ -1,6 +1,8 @@
 ---
 ################################################################################
+#
 # Project
+#
 ################################################################################
 
 project_name: "SpaceCraft"
@@ -16,8 +18,8 @@ project_local_domain: "spacecraft"
 project_local_tld: "dev"
 
 # Production
-project_produ_sub: "www"
-project_produ_domain: "spacecraft"
+project_produ_sub: "space"
+project_produ_domain: "craftvm"
 project_produ_tld: "com"
 
 ################################################################################

@@ -28,7 +28,7 @@ A project-based, host-agnostic, and version-controlled development environment t
 2. `vagrant up` && `vagrant ssh`
 3. Visit [http://spacecraft.dev/admin/install](http://spacecraft.dev/admin/install) to complete the setup.
 
-> Follow this [walkthrough](#) to build and command your own SpaceCraft cloud infrastructure.
+> Follow [this walkthrough](https://bgrrtt.github.io/spacecraft-docs) to build and command your own SpaceCraft cloud infrastructure.
 
 ## Usage
 

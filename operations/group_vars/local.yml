@@ -11,7 +11,7 @@ craft_db_driver:   "mysql"
 craft_db_server:   "localhost"
 craft_db_user:     "{{ vm_user }}"
 craft_db_password: "{{ vm_user }}"
-craft_db_database: "{{ project_code }}"
+craft_db_name:     "{{ project_code }}"
 craft_db_schema:   "public"
 craft_db_prefix:   "craft"
 craft_db_port:     "3306" # 5432 for PostgreSQL and 3306 for MySQL
@@ -53,7 +53,7 @@ nginx_vhosts:
         fastcgi_param DB_SERVER              "{{ craft_db_server }}";
         fastcgi_param DB_USER                "{{ craft_db_user }}";
         fastcgi_param DB_PASSWORD            "{{ craft_db_password }}";
-        fastcgi_param DB_DATABASE            "{{ craft_db_database }}";
+        fastcgi_param DB_DATABASE            "{{ craft_db_name }}";
         fastcgi_param DB_SCHEMA              "{{ craft_db_schema }}";
         fastcgi_param DB_TABLE_PREFIX        "{{ craft_db_prefix }}";
         fastcgi_param DB_PORT                "{{ craft_db_port }}";

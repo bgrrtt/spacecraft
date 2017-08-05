@@ -40,4 +40,3 @@ def load_config(files)
   end
   resolve_jinja_variables(vconfig)
 end
-################################################################################

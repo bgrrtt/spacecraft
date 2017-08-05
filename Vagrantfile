@@ -2,7 +2,8 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 ################################################################################
-require './operations/vagrant/install.rb'
+require './operations/config/vagrant.rb'
+################################################################################
 vconfig = load_config([
         './operations/config/project.yml',
         './operations/config/server.yml'
